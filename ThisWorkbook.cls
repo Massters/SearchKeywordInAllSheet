@@ -46,4 +46,15 @@ Sub FindKeywordsInAllSheets()
         keyword.Offset(0, 1).Value = result
 
     Next keyword
+
+    ' 替换结果中的Sheet2为A，Sheet3为B
+    For Each keyword In rngKeywords
+        Dim replaceValue As String
+        replaceValue = keyword.Offset(0, 1).Value
+        replaceValue = Replace(replaceValue, "Sheet2", "2")
+        replaceValue = Replace(replaceValue, "Sheet3", "3")
+        replaceValue = Replace(replaceValue, "Sheet4", "4")
+        keyword.Offset(0, 1).Value = replaceValue
+    Next keyword
+    
 End Sub
